@@ -1,5 +1,12 @@
-.container {
-    display: flex;
+/* body {
+    background-color: #181a1b;
+    color: #e8e6e3;
+    font-family: monospace;
+} */
+
+p,
+label {
+    font-size: x-large;
 }
 
 .statusContainer {

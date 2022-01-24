@@ -30,8 +30,8 @@ async function getData() {
             console.log(timeInSeconds + " seconds left");
             console.log(completion + "%");
 
-            document.getElementById("prog").value = completion;
-            document.getElementById("progLabel").innerHTML = `Printing progress: ${completion}%`;
+            document.getElementById("prog").style.width = completion + "%";
+            document.getElementById("prog").innerHTML = `${completion}%`;
 
             name = name.split(".");
             name = name[0];
