@@ -1,0 +1,23 @@
+{
+    "name": "octoprint-status-page",
+    "version": "1.0.0",
+    "description": "This just a small webpage to display the current status of your 3D print from your OctoPrint server using the OctoPrint API.",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MspMarik/octoprint-status-page.git"
+    },
+    "author": "Mark Spivak",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/MspMarik/octoprint-status-page/issues"
+    },
+    "homepage": "https://github.com/MspMarik/octoprint-status-page#readme",
+    "dependencies": {
+        "axios": "^0.25.0",
+        "express": "^4.17.2"
+    }
+}
