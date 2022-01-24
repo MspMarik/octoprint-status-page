@@ -4,20 +4,24 @@
         <meta charset="utf-8" />
         <title>OctoPrint Status Page</title>
         <meta name="description" content="OctoPrint status page" />
-        <link rel="stylesheet" href="/public/style.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="statusContainer">
-            <h3>Print Name:</h3>
-            <p id="printName"></p>
-            <h3>Approx. Time Left:</h3>
-            <p id="timeLeft"></p>
-        </div>
-        <div class="streamContainer">
-            <img class="stream" src="http://192.168.1.247/webcam/?action=stream" />
+        <div class="container">
+            <div class="statusContainer">
+                <h3>Print Name:</h3>
+                <p id="printName"></p>
+                <h3>Approx. Time Left:</h3>
+                <p id="timeLeft"></p>
+                <label id="progLabel" for="prog">Printing progress: 0%</label>
+                <progress id="prog" value="0" max="100"></progress>
+            </div>
+            <div class="streamContainer">
+                <img class="stream" src="http://98.109.31.91:54323/webcam/?action=stream" />
+            </div>
         </div>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript" src="./config.js"></script>
-    <script type="text/javascript" src="/public/script.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </html>
