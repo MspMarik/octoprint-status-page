@@ -1,8 +1,10 @@
-from distutils.command.config import config
+import sys
 
 
-apikey = input("Enter the API key for OctoPrint: ")
-print("You entered: " + apikey)
+# apikey = input("Enter the API key for OctoPrint: ")
+# print("You entered: " + apikey)
+
+apikey = sys.argv[1]
 
 f = open("config.js", "w")
 f.write('var config = {apikey: "' + apikey + '",}')
