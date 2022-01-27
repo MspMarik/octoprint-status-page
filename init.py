@@ -6,8 +6,10 @@ import sys
 
 apikey = sys.argv[1]
 
+url = sys.argv[2]
+
 f = open("config.js", "w")
-f.write('var config = {apikey: "' + apikey + '",}')
+f.write('var config = {apikey: "' + apikey + '", cameraUrl: "' + url + '",}')
 f.close();
 
 print("Done!")
