@@ -1,4 +1,6 @@
-console.log(config);
+// console.log(config);
+
+document.getElementById("stream").src = config.cameraUrl;
 
 async function go() {
     while (true) {
