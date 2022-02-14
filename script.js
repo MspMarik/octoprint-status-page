@@ -1,6 +1,6 @@
 // console.log(config);
 
-document.getElementById("stream").src = config.cameraUrl;
+//document.getElementById("stream").src = config.cameraUrl;
 
 async function go() {
     while (true) {
@@ -18,9 +18,9 @@ async function go() {
 
 async function getData() {
     axios
-        .get("http://98.109.31.91:54323/api/job", {
+        .get(/api/job USL GOES HERE, {
             headers: {
-                "X-Api-Key": config.apikey,
+                "X-Api-Key": API KEY HERE,
             },
         })
         .then(function (response) {
@@ -28,26 +28,37 @@ async function getData() {
             let timeInSeconds = response.data.progress.printTimeLeft;
             let completion = Math.floor(response.data.progress.completion);
 
-            console.log(name);
-            console.log(timeInSeconds + " seconds left");
-            console.log(completion + "%");
+            if (name) {
+                console.log(name);
+                console.log(timeInSeconds + " seconds left");
+                console.log(completion + "%");
+
+                name = name.split(".");
+                name = name[0];
+                name = name.substring(7);
+
+                if (!timeInSeconds) {
+                    timeAsString = "Calculating...";
+                    progress = "0";
+                } else {
+                    timeAsString = "";
+                    timeInMinutes = timeInSeconds / 60;
+                    hours = Math.floor(timeInMinutes / 60);
+                    minutes = Math.floor(timeInMinutes % 60);
+                    if (timeInMinutes < 60) {
+                        timeAsString = `${minutes} mins`;
+                    } else {
+                        timeAsString = `${hours} hr ${minutes} mins`;
+                    }
+                }
+            } else {
+                name = "NOTHING CURRENTLY PRINTING";
+                timeAsString = "N/A";
+                progress = "0";
+            }
 
             document.getElementById("prog").style.width = completion + "%";
             document.getElementById("prog").innerHTML = `${completion}%`;
-
-            name = name.split(".");
-            name = name[0];
-
-            let timeAsString = "";
-            let timeInMinutes = timeInSeconds / 60;
-            let hours = Math.floor(timeInMinutes / 60);
-            let minutes = Math.floor(timeInMinutes % 60);
-            if (timeInMinutes < 60) {
-                timeAsString = `${minutes} mins`;
-            } else {
-                timeAsString = `${hours} hr ${minutes} mins`;
-            }
-
             document.getElementById("printName").innerHTML = name;
             document.getElementById("timeLeft").innerHTML = timeAsString;
         });
